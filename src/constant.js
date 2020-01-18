@@ -1,0 +1,2 @@
+export const USER_TOKEY_KEY = 'HIK_FMS_TOKEN'
+export const USER_INFO_KEY = 'HIK_FMS_USERINFO'
