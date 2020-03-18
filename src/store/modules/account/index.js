@@ -1,5 +1,6 @@
 import actions from './actions'
 import mutations from './mutations'
+import getters from './getters'
 
 export default {
   namespaced: 'account',
@@ -8,5 +9,6 @@ export default {
     resources: null // 资源信息
   },
   actions,
+  getters,
   mutations
 }

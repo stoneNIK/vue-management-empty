@@ -33,5 +33,17 @@ export default {
         reject(error)
       }
     })
+  },
+  AccountUserInfo: async ({ commit, state }) => {
+    let user = state.user
+    if (!(user && user.name)) {
+      user = userInfo.get()
+    }
+    if (!(user && user.name)) {
+      user = await UserService.userInfo()
+      userInfo.set(user)
+    }
+    commit('SET_USRE', user)
+    return user
   }
 }
