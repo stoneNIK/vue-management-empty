@@ -1,8 +1,8 @@
 @import 'common';
 
-@import './reset.scss';
-@import './fixed/base.scss';
-@import './fixed/element.scss';
+@import './reset';
+@import './fixed/base';
+@import './fixed/element';
 
 // 文字相关
 .#{$prefix}-text-center {

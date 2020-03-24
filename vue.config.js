@@ -3,7 +3,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://yapi.hikcreate.com/mock/241',
+        target: 'http://yapi.hikcreate.com/mock/260',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

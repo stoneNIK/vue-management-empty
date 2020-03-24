@@ -3,28 +3,32 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+const businessRoutes = []
+
 const routes = [
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/Login.vue')
-  },
   {
     path: '/',
     name: 'admin',
-    redirect: '/home',
-    component: () => import('../layout/AdminLayout.vue'),
-    children: [
-      {
-        path: 'home',
-        name: 'home',
-        meta: {
-          menuName: '首页',
-          menuIcon: 'el-icon-s-home'
-        },
-        component: () => import('../views/Home.vue')
-      }
-    ]
+    redirect: '/home'
+  },
+  {
+    path: '/home',
+    name: 'home',
+    meta: {
+      menuName: '欢迎页',
+      menuIcon: 'el-icon-s-home',
+      layout: 'main'
+    },
+    component: () => import('../views/Home.vue')
+  },
+  ...businessRoutes,
+  {
+    path: '/login',
+    name: 'login',
+    meta: {
+      menuName: '登陆'
+    },
+    component: () => import('../views/Login.vue')
   },
   {
     path: '/forgot',
@@ -34,7 +38,10 @@ const routes = [
   {
     path: '*',
     name: '404',
-    component: () => import('../views/404.vue')
+    component: () => import('../views/404.vue'),
+    meta: {
+      layout: 'empty'
+    }
   }
 ]
 

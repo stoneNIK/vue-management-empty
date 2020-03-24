@@ -2,8 +2,8 @@
   <div class="login-view">
     <vue-particles class="particles-wrap" color="#dedede"></vue-particles>
     <div class="login-view-main">
-      <!-- <div class="title">XXXXX有限公司</div>
-      <div class="sub-title">XX管理系统</div> -->
+      <div class="title">XXXXX有限公司</div>
+      <div class="sub-title">XX管理系统</div>
     </div>
     <div class="login-view-form-wrap">
       <div class="login-logo">
@@ -134,8 +134,8 @@ $danger-color: #f00;
   height: 100vh;
   justify-content: space-around;
   align-items: center;
-  background: no-repeat url(../assets/images/login_bg.png) 50% 50%;
-  background-size: cover;
+  background-color: #333;
+  font-size: 14px;
   .particles-wrap {
     position: absolute;
     top: 0;
@@ -150,17 +150,16 @@ $danger-color: #f00;
     letter-spacing: 3px;
     user-select: none;
     .title {
-      font-size: 70px;
+      font-size: 5em;
       line-height: 2;
       font-weight: bold;
     }
     .sub-title {
-      font-size: 40px;
+      font-size: 2.2em;
       line-height: 1.8;
     }
   }
   &-form-wrap {
-    transform: translateX(150px);
     width: 350px;
     height: 70vh;
     min-height: 600px;
@@ -253,12 +252,14 @@ $danger-color: #f00;
       .form-option {
         margin-top: 40px;
         .login-btn {
+          $btn-height: 2.5vw;
           display: flex;
           align-items: center;
           justify-content: center;
           width: 100%;
-          height: 54px;
-          border-radius: 60px;
+          height: $btn-height;
+          min-height: 40px;
+          border-radius: $btn-height;
           color: #fff;
           font-size: 20px;
           font-weight: 100;
@@ -276,6 +277,19 @@ $danger-color: #f00;
           }
         }
       }
+    }
+  }
+  // 兼容性处理
+  $type: screen;
+  $proto: max-width;
+  $value: 1000px;
+  @media #{$type} and ($proto: $value) {
+    font-size: 12px;
+    &-main {
+      display: none;
+    }
+    &-form-wrap {
+      height: 100%;
     }
   }
 }

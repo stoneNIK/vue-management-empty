@@ -16,6 +16,10 @@ const AccountService = {
   // 忘记密码重置
   forgotPassword({ phone, code, newPassword }) {
     return $request.post('/user/forgetPassword', { phone, code, newPassword })
+  },
+  // 用户信息
+  userInfo: () => {
+    return $request.get('/user/info')
   }
 }
 

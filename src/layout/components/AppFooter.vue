@@ -16,9 +16,10 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/common.scss';
 .app-footer {
+  flex: none;
+  padding: 10px 10px;
   width: 100%;
   @extend .row-center;
-  height: 60px;
   background: $app-footer-bg;
   color: #fff;
   font-size: 14px;

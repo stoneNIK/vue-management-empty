@@ -29,4 +29,32 @@ util.open = url => {
   document.body.removeChild(document.getElementById('management-open-link'))
 }
 
+/**
+ * @description 加载JS脚本
+ * @param {String} url 地址
+ * @param {String} namespace 命名空间
+ */
+util.loadScriptAsync = (url, namespace) => {
+  return new Promise((resolve, reject) => {
+    if (window[namespace]) {
+      resolve(window[namespace])
+    }
+    let scriptNode = document.createElement('script')
+    scriptNode.setAttribute('type', 'text/javascript')
+    scriptNode.charset = 'utf-8'
+    scriptNode.src = url
+    scriptNode.onload = function() {
+      if (!namespace || window[namespace]) {
+        resolve(window[namespace])
+      } else {
+        reject()
+      }
+    }
+    scriptNode.onerror = function(error) {
+      reject(error)
+    }
+    document.body.appendChild(scriptNode)
+  })
+}
+
 export default util

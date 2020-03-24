@@ -27,10 +27,7 @@ export default {
   methods: {
     getBreadcrumb() {
       let matched = this.$route.matched
-      matched = matched.slice(1)
-      if (matched[0].name != 'home') {
-        matched = [{ path: '/home', meta: { menuName: '首页' } }].concat(matched)
-      }
+      matched = [{ path: '/home', meta: { menuName: '首页' } }, ...matched]
       this.breadList = matched
     }
   },

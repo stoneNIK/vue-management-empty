@@ -13,7 +13,7 @@
         class="app-header-right_userdrown"
       >
         <el-submenu index="0" class="submenu">
-          <template slot="title">{{ userInfo.userName || userInfo.phone }}</template>
+          <template slot="title">欢迎您，{{ userInfo.userName || userInfo.phone }}</template>
           <el-menu-item index="/user"> <i class="el-icon-setting"></i> 个人中心 </el-menu-item>
           <el-menu-item index="logout"> <i class="el-icon-switch-button"></i> 退出登录 </el-menu-item>
         </el-submenu>
@@ -60,9 +60,10 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/common.scss';
 .app-header {
+  flex: none;
   width: 100%;
   @extend .row-between;
-  height: 64px;
+  height: 60px;
   background: $app-header-bg;
   color: $app-header-color;
   padding: 0 15px;
@@ -77,7 +78,7 @@ export default {
     a {
       text-decoration: none;
       color: $app-header-color;
-      margin-left: 10px;
+      margin-left: 15px;
       font-size: 20px;
     }
   }

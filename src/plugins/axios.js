@@ -3,9 +3,6 @@ import { Message } from 'element-ui'
 import util from '@/utils/util'
 import { userToken } from '@/utils/cache'
 
-// 是否外部的服务器
-export const isOutServer = url => url.indexOf('/') !== 0
-
 // 创建一个错误
 function errorCreat(msg) {
   const err = new Error(msg)
@@ -67,24 +64,14 @@ service.interceptors.response.use(
       return dataAxios
     } else {
       // 有 code 代表这是一个后端接口 可以进行进一步的判断
-      switch (code) {
-        case 200:
-          // [ 示例 ] code === 200 代表没有错误
-          // 这里也可以自行根据后端协商调整
-          return dataAxios.data
-        case 2001:
-          // 登陆失效
-          location.href = `${process.env.PUBLIC_PATH || ''}/login`
-          break
-        case 'xxx':
-          // [ 示例 ] 其它和后台约定的 code
-          errorCreat(`[ code: xxx ] ${dataAxios.msg}: ${response.config.url}`)
-          break
-        default:
-          // 不是正确的 code
-          errorCreat(`${dataAxios.msg}: ${response.config.url}`)
-          break
+      if (code == 1000) {
+        return dataAxios.data
       }
+      // 未登陆则跳转登陆
+      if (code >= 1007 && code <= 1011) {
+        location.href = `${process.env.PUBLIC_PATH || ''}/login`
+      }
+      errorCreat(`${dataAxios.msg}`)
     }
   },
   error => {

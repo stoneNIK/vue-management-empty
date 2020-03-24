@@ -5,6 +5,7 @@ body {
   margin: 0px;
   height: 100%;
   font-family: 'Microsoft Yahei light', 'Arial', 'Microsoft YaHei', '黑体', '宋体', sans-serif;
+  overflow: hidden;
   #app {
     @extend %full;
     a {

@@ -1,2 +1,2 @@
-export const USER_TOKEY_KEY = 'HIK_FMS_TOKEN'
-export const USER_INFO_KEY = 'HIK_FMS_USERINFO'
+export const USER_TOKEY_KEY = 'MANA_TOKEN'
+export const USER_INFO_KEY = 'MANA_USERINFO'

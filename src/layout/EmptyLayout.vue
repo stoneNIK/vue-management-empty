@@ -1,9 +1,9 @@
 <template>
   <el-container class="app-container">
     <AppHeader />
-    <el-main class="app-main">
+    <div class="app-main">
       <slot />
-    </el-main>
+    </div>
     <AppFooter />
   </el-container>
 </template>
@@ -30,6 +30,8 @@ export default {
   justify-content: space-between;
 }
 .app-main {
-  padding: 0;
+  position: relative;
+  display: flex;
+  flex: auto;
 }
 </style>

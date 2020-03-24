@@ -3,36 +3,24 @@ import md5 from 'js-md5'
 import { userToken, userInfo } from '@/utils/cache'
 
 export default {
-  AccountLogout: ({ commit }) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        await UserService.logout()
-        userToken.remove()
-        userInfo.remove()
-        commit('SET_USRE', {})
-        commit('SET_RESOURCES', [])
-        resolve()
-      } catch (error) {
-        reject(error)
-      }
-    })
+  AccountLogout: async ({ commit }) => {
+    await UserService.logout()
+    userToken.remove()
+    userInfo.remove()
+    commit('SET_USRE', {})
   },
-  AccountLogin: ({ commit }, { account, password }) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const res = await UserService.login({
-          account,
-          password: md5(password)
-        })
-        userToken.set(res.token)
-        userInfo.set(res.user)
-        commit('SET_USRE', res.user)
-        commit('SET_RESOURCES', res.resources)
-        resolve(res)
-      } catch (error) {
-        reject(error)
-      }
+  AccountLogin: async ({ commit }, { account, password }) => {
+    const { token } = await UserService.login({
+      account,
+      password: md5(password)
     })
+    userToken.set(token)
+
+    // 获取用户信息，如果用户在login接口返回了用户信息，可以去掉这一步
+    const user = await UserService.userInfo()
+    userInfo.set(user)
+    commit('SET_USRE', user)
+    return user
   },
   AccountUserInfo: async ({ commit, state }) => {
     let user = state.user
