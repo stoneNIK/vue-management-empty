@@ -69,7 +69,7 @@ service.interceptors.response.use(
       }
       // 未登陆则跳转登陆
       if (code >= 1007 && code <= 1011) {
-        location.href = `${process.env.PUBLIC_PATH || ''}/login`
+        location.href = `${process.env.BASE_URL}/login?redirect=${location.pathname}`
       }
       errorCreat(`${dataAxios.msg}`)
     }
