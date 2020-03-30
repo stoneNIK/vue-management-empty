@@ -37,6 +37,22 @@ const routes = [
   },
   {
     path: '*',
+    name: '403',
+    component: () => import('../views/403.vue'),
+    meta: {
+      layout: 'empty'
+    }
+  },
+  {
+    path: '*',
+    name: '500',
+    component: () => import('../views/500.vue'),
+    meta: {
+      layout: 'empty'
+    }
+  },
+  {
+    path: '*',
     name: '404',
     component: () => import('../views/404.vue'),
     meta: {
