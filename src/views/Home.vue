@@ -1,7 +1,6 @@
 <template>
   <div>
     <div>home page</div>
-    <div><icon-font color="#f30" :size="50" type="home" /><icon-font type="bus" /></div>
   </div>
 </template>
 
