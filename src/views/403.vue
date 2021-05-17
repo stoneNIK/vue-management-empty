@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrap">
     <div class="wrap">
-      <img :src="require('/assets/403.png')" />
+      <img :src="require('@/assets/images/403.png')" />
       <div class="content">
         <span class="code">403</span>
         <span class="text">抱歉，你无权访问该页面</span>

@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrap">
     <div class="wrap">
-      <img :src="require('@/assets/500.png')" />
+      <img :src="require('@/assets/images/500.png')" />
       <div class="content">
         <span class="code">500</span>
         <span class="text">抱歉，服务器出错了</span>

@@ -118,6 +118,7 @@ export default {
 
 <style lang="scss" scoped>
 .forgot-page {
+  width: 100%;
   min-height: calc(100vh - 124px);
   display: flex;
   align-items: center;
