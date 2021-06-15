@@ -36,7 +36,7 @@ const routes = [
     component: () => import('../views/Forgot.vue')
   },
   {
-    path: '*',
+    path: '/403',
     name: '403',
     component: () => import('../views/403.vue'),
     meta: {
@@ -44,7 +44,7 @@ const routes = [
     }
   },
   {
-    path: '*',
+    path: '/500',
     name: '500',
     component: () => import('../views/500.vue'),
     meta: {
